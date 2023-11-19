@@ -1,3 +1,4 @@
+
 // Loading animation
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
@@ -23,24 +24,47 @@ export function CardsSkeleton() {
     <>
       <CardSkeleton />
       <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
     </>
   );
 }
 
 export function RevenueChartSkeleton() {
   return (
-    <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
-      <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
-      <div className="rounded-xl bg-gray-100 p-4">
-        <div className="sm:grid-cols-13 mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md  bg-white p-4 md:gap-4" />
-        <div className="flex items-center pb-2 pt-6">
-          <div className="h-5 w-5 rounded-full bg-gray-200" />
-          <div className="ml-2 h-4 w-20 rounded-md bg-gray-200" />
-        </div>
-      </div>
+    <>
+    <div>
+      <CardSkeleton />
+      <br />
+      <CardSkeleton /> 
     </div>
+    <div>
+    <CardSkeleton />
+    <br />
+    <CardSkeleton /> 
+  </div>
+  <div>
+    <CardSkeleton />
+    <br />
+    <CardSkeleton /> 
+  </div>
+  </>
+    // <>
+    //   <CardSkeleton />
+    //   <CardSkeleton />
+    //   <CardSkeleton />
+    //   <CardSkeleton />
+    //   <CardSkeleton />
+    //   <CardSkeleton />
+    // </>
+    // <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
+    //   <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
+    //   <div className="rounded-xl bg-gray-100 p-4">
+    //     <div className="sm:grid-cols-13 mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md  bg-white p-4 md:gap-4" />
+    //     <div className="flex items-center pb-2 pt-6">
+    //       <div className="h-5 w-5 rounded-full bg-gray-200" />
+    //       <div className="ml-2 h-4 w-20 rounded-md bg-gray-200" />
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
 
@@ -91,8 +115,6 @@ export default function DashboardSkeleton() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <CardSkeleton />
         <CardSkeleton />
-        <CardSkeleton />
-        <CardSkeleton />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChartSkeleton />
@@ -120,11 +142,11 @@ export function TableRowSkeleton() {
       <td className="whitespace-nowrap px-3 py-3">
         <div className="h-6 w-16 rounded bg-gray-100"></div>
       </td>
-      {/* Date */}
+      {/* Amount */}
       <td className="whitespace-nowrap px-3 py-3">
         <div className="h-6 w-16 rounded bg-gray-100"></div>
       </td>
-      {/* Status */}
+      {/* Date */}
       <td className="whitespace-nowrap px-3 py-3">
         <div className="h-6 w-16 rounded bg-gray-100"></div>
       </td>
@@ -180,25 +202,19 @@ export function InvoicesTableSkeleton() {
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                  Customer
+                  File Name
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
-                  Email
+                  Description
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
-                  Amount
+                  Initial Diagram
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Final Render
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Date
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Status
-                </th>
-                <th
-                  scope="col"
-                  className="relative pb-4 pl-3 pr-6 pt-2 sm:pr-6"
-                >
-                  <span className="sr-only">Edit</span>
                 </th>
               </tr>
             </thead>

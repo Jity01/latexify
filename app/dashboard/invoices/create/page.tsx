@@ -4,7 +4,7 @@ import { fetchCustomers } from '@/app/lib/data';
 import { Metadata } from 'next';
  
 export const metadata: Metadata = {
-  title: 'Create Invoice | Acme Dashboard',
+  title: 'Create File',
 };
  
 export default async function Page() {
@@ -14,9 +14,9 @@ export default async function Page() {
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Invoices', href: '/dashboard/invoices' },
+          { label: 'Files', href: '/dashboard/invoices' },
           {
-            label: 'Create Invoice',
+            label: 'Create File',
             href: '/dashboard/invoices/create',
             active: true,
           },
