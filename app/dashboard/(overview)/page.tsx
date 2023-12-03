@@ -13,6 +13,21 @@ import CardWrapper from '@/app/ui/dashboard/cards';
 export default async function Page() {
   return (
     <main>
+      <div style={{maxWidth: "700px", margin: "20px auto"}} className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+        <hr />
+        <hr />
+        <br />
+        <h1><strong>Welcome to Latexify!</strong></h1>
+        <br/>
+          <p>
+          With Latexify, you can draw up a diagram by hand and swiftly convert it into TikZ code to embed in your 
+          LaTeX documents—be it a research paper or a LaTeX-based note.Initially focusing on converting physics 
+          diagrams to TikZ, we plan to expand our tool based on user feedback and performance evaluations.
+          </p>
+        </div>
+      <hr />
+      <hr />
+      <br />
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
       </h1>
@@ -23,17 +38,9 @@ export default async function Page() {
       </div>
       <br />
       <br />
-      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Current Folders
-      </h2>
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-3">
-        <Suspense fallback={<RevenueChartSkeleton />}>
-          <RevenueChartSkeleton />
-        </Suspense>
         <Suspense fallback={<LatestInvoicesSkeleton />}>
           <LatestInvoices />
         </Suspense>
-      </div>
     </main>
   );
 }

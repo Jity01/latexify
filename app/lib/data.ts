@@ -4,6 +4,7 @@ import {
   CustomersTable,
   InvoiceForm,
   InvoicesTable,
+  DiagramsTable,
   LatestInvoiceRaw,
   User,
   Revenue,
@@ -114,6 +115,21 @@ export async function fetchFilteredInvoices(
   }
 }
 
+export async function fetchDiagrams() {
+  try {
+    const diagrams = await sql<DiagramsTable>`
+      SELECT * FROM diagrams
+    `;
+
+    noStore();
+
+    return diagrams.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch diagrams.');
+  }
+}
+
 export async function fetchInvoicesPages(query: string) {
   try {
     const count = await sql`SELECT COUNT(*)
@@ -169,9 +185,11 @@ export async function fetchCustomers() {
     const data = await sql<CustomerField>`
       SELECT
         id,
-        name
+        name,
+        email,
+        image_url
       FROM customers
-      ORDER BY name ASC
+      LIMIT 5
     `;
 
     const customers = data.rows;

@@ -55,6 +55,13 @@ export type InvoicesTable = {
   status: 'pending' | 'paid';
 };
 
+export type DiagramsTable = {
+  initial: string;
+  final: string;
+  name: string;
+};
+
+
 export type CustomersTable = {
   id: string;
   name: string;
@@ -78,6 +85,8 @@ export type FormattedCustomersTable = {
 export type CustomerField = {
   id: string;
   name: string;
+  email: string;
+  image_url: string;
 };
 
 export type InvoiceForm = {
