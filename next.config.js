@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = () => {
+    const withImages = require('next-images')
     const rewrites = () => {
         return [
             {
@@ -8,9 +9,16 @@ const nextConfig = () => {
             },
         ];
     };
-    return {
+    return withImages({
         rewrites,
-    };
+        images: {
+            disableStaticImages: true,
+        },
+        webpack: (config) => {
+            config.resolve.alias.canvas = false;
+            return config;
+        },
+    });
 };
 
 module.exports = nextConfig;

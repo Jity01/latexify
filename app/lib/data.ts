@@ -189,14 +189,13 @@ export async function fetchCustomers() {
         email,
         image_url
       FROM customers
-      LIMIT 5
     `;
 
     const customers = data.rows;
 
     noStore();
 
-    return customers;
+    return [customers[0], customers[1], customers[2], customers[3], customers[4]];
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all customers.');

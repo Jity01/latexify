@@ -34,8 +34,16 @@ export default async function InvoicesTable({
     initialLinks[name] = diagramsByName[name].initial
   }
   for (let name in diagramsByName) {
-    finalLinks[name] = diagramsByName[name].final
+    finalLinks[name] = String(diagramsByName[name].final)
   }
+  const generateLink = (code: string) => {
+    const data = code?.toString().trim().replaceAll(/%[^]*?\n/g, '').replaceAll('\\n', '').replaceAll(/\\\\/g, '\\')
+    if (!data) return ''
+    const bin = Buffer.from(data).toString('base64');
+    const bin_uri = "data:text/plain;base64," + bin;
+    const final_uri = "https://www.overleaf.com/docs?snip_uri=" + bin_uri;
+    return final_uri
+  };
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
@@ -108,20 +116,16 @@ export default async function InvoicesTable({
                     {invoice.email}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    <Link href={initialLinks[invoice.name]} style={{color: "blue"}}>{invoice.name.slice(0, 3)}.initial_render</Link>
+                    <Link href={initialLinks[invoice.name] || "hi :0"} style={{color: "blue"}}>{invoice.name.slice(0, 3)}.initial_render</Link>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
                   <Link
-                    href="/dashboard/invoices/error"
-                      // pathname: "/blshd",
-                      // query: {
-                      //   code: finalLinks[invoice.name]?.textContent 
-                      // }
-                    
+                    href={generateLink(finalLinks[invoice.name]) || "hi :0"}
                     style={{color: "blue"}}
                   >
                     {invoice.name.slice(3, 7)}.final_render
                   </Link>
+                  
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
                     {formatDateToLocal(invoice.date)}

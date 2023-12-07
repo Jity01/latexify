@@ -13,7 +13,7 @@ import CardWrapper from '@/app/ui/dashboard/cards';
 export default async function Page() {
   return (
     <main>
-      <div style={{maxWidth: "700px", margin: "20px auto"}} className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+      {/* <div style={{maxWidth: "700px", margin: "20px auto"}} className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         <hr />
         <hr />
         <br />
@@ -24,7 +24,7 @@ export default async function Page() {
           LaTeX documents—be it a research paper or a LaTeX-based note.Initially focusing on converting physics 
           diagrams to TikZ, we plan to expand our tool based on user feedback and performance evaluations.
           </p>
-        </div>
+        </div> */}
       <hr />
       <hr />
       <br />

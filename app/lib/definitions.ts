@@ -57,7 +57,7 @@ export type InvoicesTable = {
 
 export type DiagramsTable = {
   initial: string;
-  final: string;
+  final: Text;
   name: string;
 };
 
