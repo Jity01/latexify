@@ -9,16 +9,12 @@ const nextConfig = () => {
             },
         ];
     };
-    return withImages({
+    return {
         rewrites,
         images: {
             disableStaticImages: true,
         },
-        webpack: (config) => {
-            config.resolve.alias.canvas = false;
-            return config;
-        },
-    });
+    };
 };
 
 module.exports = nextConfig;
